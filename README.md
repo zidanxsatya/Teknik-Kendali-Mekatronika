@@ -1,6 +1,6 @@
-# Kuis Pelajaran
+# Mata Pelajaran TKM Materi Gerbang Logika
 
-Website materi pelajaran + kuis untuk siswa, tanpa login (cukup isi nama & kelas), dengan nilai tersimpan otomatis ke Firebase Firestore.
+Website materi pelajaran beserta kuis untuk siswa
 
 ## Struktur file
 
