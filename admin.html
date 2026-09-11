@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekap Nilai — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .admin-sheet { max-width: 860px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+  th { color: var(--ink-soft); font-weight: 600; font-size: 13px; }
+  tr:hover td { background: var(--green-soft); }
+  .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 10px; }
+  .muted { color: var(--ink-soft); font-size: 13.5px; }
+  #gate { text-align: center; padding: 40px 0; }
+  #gate input { max-width: 240px; margin: 0 auto 14px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="sheet admin-sheet">
+    <header class="sheet-header">
+      <p class="sheet-label">Panel Guru</p>
+      <h1 class="sheet-title">Rekap Nilai Siswa</h1>
+      <p class="sheet-sub">Matematika: Pecahan</p>
+    </header>
+
+    <!-- Gerbang password sederhana (LIHAT CATATAN KEAMANAN di README) -->
+    <div id="gate" class="section active">
+      <label class="field">
+        <span>Masukkan kode akses guru</span>
+        <input type="password" id="input-password" placeholder="Kode akses">
+      </label>
+      <button id="btn-masuk" class="btn-primary">Lihat rekap →</button>
+      <p id="gate-error" class="error-text" hidden>Kode akses salah.</p>
+    </div>
+
+    <div id="konten" class="section">
+      <div class="toolbar">
+        <span class="muted" id="jumlah-data">Memuat data…</span>
+        <button id="btn-refresh" class="btn-secondary">Muat ulang</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Skor</th>
+            <th>Waktu</th>
+          </tr>
+        </thead>
+        <tbody id="tabel-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
